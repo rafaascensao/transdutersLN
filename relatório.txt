@@ -1,0 +1,23 @@
+###################  Relatório MP1  ######################
+
+                 Pedro Ascensão 78961
+                  João Rebelo 75376
+
+O objectivo deste projecto era construir um transdutor que implementasse um algoritmo fonético. 
+O nosso transdutor final é composto por 4 transdutores que implementam cada passo descrito no enunciado. 
+No caso dos transdutores que implementam o 1º e 3º passo, estes são compostos por outros transdutores que implementam pequenas partes destes passos.
+
+Na construção dos transdutores, a única coisa que é relevante mencionar é a utilização de transições epsilon para casos “default”. 
+Quando era necessário construir transições que representassem “em caso contrário”, foi utilizado transições epsilon com pesos. 
+Estes pesos foram acrescentados à transição de forma a garantir que só era executado caso não houvesse outra opção.  
+
+O run.sh é um ficheiro que ao ser corrido gera em formato .pdf e .fst, o transdutor final, os transdutores que implementam cada passo 
+e os exemplos de teste (último nome de cada elemento do grupo). Ao ser corrido, estes ficheiros encontram-se numa pasta chamada de target
+Demora ainda algum tempo a complilar tudo e a gerar os .pdf.
+
+O run.sh ainda pode receber outras flags, como por exemplo -t, que irá ler o ficheiro “inputs.txt”, 
+que é constituído por várias palavras, e irá gerar um ficheiro “output.txt” na pasta target/tests/ com o output para cada palavra do ficheiro de input. 
+A flag -h também pode ser utilizada para obter mais informação sobre este ficheiro.  
+
+Foi ainda criado um script em python fst2word.py que a partir dum ficheiro .txt que implementa um transdutor para uma certa palavra especifica, 
+retorna essa palavra. No entanto este script não funciona corretamente para palavras com 10 ou mais letras.
